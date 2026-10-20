@@ -3,6 +3,14 @@ import "./globals.css";
 export const metadata = {
   title: "VU StudyHub - Virtual University Handouts, Solved Past Papers & Study Files",
   description: "Comprehensive study portal for Virtual University (VU) Pakistan students. Instant access to official handouts, Moaaz & Waqar Sidhu solved midterm and finalterm papers, grand quiz files, and notes for BSCS, BSSE, BSIT, BBA, and all programs.",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' },
+    ],
+    shortcut: '/icon.svg',
+    apple: '/apple-touch-icon.png',
+  },
   keywords: [
     "Virtual University handouts",
     "VU past papers",
@@ -29,6 +37,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script

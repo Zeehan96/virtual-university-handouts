@@ -61,8 +61,8 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
           onClick={() => { setActiveTab('resources'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="flex items-center gap-2.5 cursor-pointer select-none"
         >
-          <div className="w-9 h-9 rounded bg-[#0f2b5c] dark:bg-[#0b1a3a] border border-[#d4af37]/40 dark:border-[#fbbf24]/50 flex items-center justify-center text-[#d4af37] dark:text-[#fbbf24] shadow-xs">
-            <GraduationCap className="w-5 h-5" />
+          <div className="w-9 h-9 ">
+            <img src="/icon.svg" alt="VU StudyHub Logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <div className="flex items-center gap-1 leading-none">
@@ -86,8 +86,8 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs sm:text-sm font-semibold transition-all cursor-pointer ${isActive
-                    ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a] shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-[#0f2b5c] dark:hover:text-white hover:bg-[#eef4fb]/70 dark:hover:bg-[#0e224e]'
+                  ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a] shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-[#0f2b5c] dark:hover:text-white hover:bg-[#eef4fb]/70 dark:hover:bg-[#0e224e]'
                   }`}
               >
                 <Icon className={`w-4 h-4 ${isActive ? 'text-[#b48316] dark:text-[#fbbf24]' : 'text-slate-400'}`} />
@@ -162,8 +162,8 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded text-xs font-semibold cursor-pointer transition-colors ${isActive
-                    ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a]'
-                    : 'text-slate-700 dark:text-slate-300 hover:bg-[#eef4fb] dark:hover:bg-[#0e224e]'
+                  ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a]'
+                  : 'text-slate-700 dark:text-slate-300 hover:bg-[#eef4fb] dark:hover:bg-[#0e224e]'
                   }`}
               >
                 <Icon className="w-4 h-4" />
