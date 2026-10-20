@@ -61,7 +61,7 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
           onClick={() => { setActiveTab('resources'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="flex items-center gap-2.5 cursor-pointer select-none"
         >
-          <div className="w-9 h-9 ">
+          <div className="w-9 h-9">
             <img src="/icon.svg" alt="VU StudyHub Logo" className="w-full h-full object-contain" />
           </div>
           <div>
