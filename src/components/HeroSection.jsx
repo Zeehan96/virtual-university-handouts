@@ -99,7 +99,7 @@ export function HeroSection({
             {/* Quick Chips */}
             <div className="flex items-center gap-1 flex-wrap">
               <span className="text-[11px] text-slate-500 font-semibold">Quick:</span>
-              {['CS101', 'CS201', 'MTH101', 'CS504', 'ENG201', 'ISL201'].map((code) => (
+              {['CS101', 'EDU101', 'MTH101', 'EDU301', 'CS201', 'ENG201', 'ISL201'].map((code) => (
                 <button
                   key={code}
                   onClick={() => setSearchQuery(code)}

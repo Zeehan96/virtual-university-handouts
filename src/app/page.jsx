@@ -45,7 +45,11 @@ export default function Home() {
       if (selectedProgram !== 'All Programs') {
         const progAbbr = selectedProgram.match(/\(([^)]+)\)/)?.[1] || selectedProgram;
         const matchesProgram = course.programs.some(
-          (p) => p.toLowerCase().includes(progAbbr.toLowerCase()) || progAbbr.toLowerCase().includes(p.toLowerCase())
+          (p) =>
+            p.toLowerCase().includes(progAbbr.toLowerCase()) ||
+            progAbbr.toLowerCase().includes(p.toLowerCase()) ||
+            selectedProgram.toLowerCase().includes(p.toLowerCase()) ||
+            p.toLowerCase().includes(selectedProgram.toLowerCase())
         );
         if (!matchesProgram) return false;
       }

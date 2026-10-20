@@ -1,17 +1,19 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { 
-  BookOpen, 
-  Moon, 
-  Sun, 
-  Calculator, 
-  Calendar, 
-  HelpCircle, 
-  UploadCloud, 
-  Menu, 
+import {
+  BookOpen,
+  Moon,
+  Sun,
+  Calculator,
+  Calendar,
+  HelpCircle,
+  UploadCloud,
+  Menu,
   X,
-  GraduationCap
+  GraduationCap,
+  Phone,
+  Sparkles
 } from 'lucide-react';
 import { Button } from './Button.jsx';
 
@@ -53,9 +55,9 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
   return (
     <nav className="sticky top-0 z-50 glass-nav border-b border-slate-200/90 dark:border-[#0e224e] w-full transition-colors shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        
+
         {/* Logo */}
-        <div 
+        <div
           onClick={() => { setActiveTab('resources'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="flex items-center gap-2.5 cursor-pointer select-none"
         >
@@ -68,7 +70,7 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
               <span className="text-lg font-black tracking-tight text-[#0f2b5c] dark:text-[#60a5fa]">Study</span>
               <span className="text-lg font-black tracking-tight text-[#b48316] dark:text-[#fbbf24]">Hub</span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden sm:block">
               Virtual University Handouts Portal
             </p>
           </div>
@@ -83,11 +85,10 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  isActive 
-                    ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a] shadow-xs' 
+                className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs sm:text-sm font-semibold transition-all cursor-pointer ${isActive
+                    ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a] shadow-xs'
                     : 'text-slate-600 dark:text-slate-400 hover:text-[#0f2b5c] dark:hover:text-white hover:bg-[#eef4fb]/70 dark:hover:bg-[#0e224e]'
-                }`}
+                  }`}
               >
                 <Icon className={`w-4 h-4 ${isActive ? 'text-[#b48316] dark:text-[#fbbf24]' : 'text-slate-400'}`} />
                 <span>{item.label}</span>
@@ -98,15 +99,33 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={onRequestFileClick}
-            icon={<UploadCloud className="w-3.5 h-3.5 text-[#0f2b5c] dark:text-[#060d1f]" />}
-            className="hidden sm:inline-flex"
+          {/* Animated Muhammad Zeeshan Khalid Contact Badge (Hidden on mobile header, visible on sm+ screens) */}
+          <a
+            href="https://wa.me/923156900796"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Chat with Muhammad Zeeshan Khalid on WhatsApp / Call: 03156900796"
+            className="group relative hidden sm:flex items-center gap-2 px-3 py-1.5 rounded border border-[#d4af37]/70 dark:border-[#fbbf24]/60 bg-gradient-to-r from-amber-50/90 via-white to-amber-50/90 dark:from-[#0b1a3a] dark:via-[#0e224e] dark:to-[#0b1a3a] shadow-xs hover:shadow-md transition-all duration-300 hover:scale-[1.02] animate-shimmer-border animate-gentle-pulse cursor-pointer select-none"
           >
-            Request / Upload
-          </Button>
+            {/* Live animated pulsing beacon dot */}
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-xs"></span>
+            </span>
+
+            <div className="flex flex-col text-left leading-none py-0.5">
+              <div className="flex items-center gap-1">
+                <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#0f2b5c] dark:group-hover:text-[#60a5fa] transition-colors whitespace-nowrap">
+                  Muhammad Zeeshan Khalid
+                </span>
+                <span className="inline-block animate-bounce text-[10px]">✨</span>
+              </div>
+              <span className="text-[11px] font-bold text-[#b48316] dark:text-[#fbbf24] flex items-center gap-1 mt-0.5">
+                <Phone className="w-2.5 h-2.5 text-[#b48316] dark:text-[#fbbf24] animate-pulse" />
+                <span>03156900796</span>
+              </span>
+            </div>
+          </a>
 
           {/* Theme Toggle Button */}
           <button
@@ -142,17 +161,43 @@ export function Navbar({ activeTab, setActiveTab, onRequestFileClick }) {
                   setActiveTab(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`flex items-center gap-2.5 px-3 py-2 rounded text-xs font-semibold cursor-pointer transition-colors ${
-                  isActive 
-                    ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a]' 
+                className={`flex items-center gap-2.5 px-3 py-2 rounded text-xs font-semibold cursor-pointer transition-colors ${isActive
+                    ? 'bg-[#eef4fb] dark:bg-[#0e224e] text-[#0f2b5c] dark:text-[#93c5fd] border border-[#cbdbee] dark:border-[#1e3a8a]'
                     : 'text-slate-700 dark:text-slate-300 hover:bg-[#eef4fb] dark:hover:bg-[#0e224e]'
-                }`}
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{item.label}</span>
               </button>
             );
           })}
+
+          {/* Mobile Animated Contact Card (sharp rounded border radius) */}
+          <a
+            href="https://wa.me/923156900796"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 flex items-center justify-between p-2.5 rounded border border-[#d4af37]/70 dark:border-[#fbbf24]/60 bg-gradient-to-r from-amber-50 via-white to-amber-50 dark:from-[#0b1a3a] dark:via-[#0e224e] dark:to-[#0b1a3a] shadow-xs animate-shimmer-border"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <div>
+                <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  Muhammad Zeeshan Khalid <Sparkles className="w-3 h-3 text-[#d4af37]" />
+                </p>
+                <p className="text-[11px] font-semibold text-[#b48316] dark:text-[#fbbf24] flex items-center gap-1">
+                  <Phone className="w-3 h-3 inline animate-pulse" /> 03156900796
+                </p>
+              </div>
+            </div>
+            <span className="text-[10px] font-bold px-2 py-1 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 animate-pulse whitespace-nowrap">
+              WhatsApp
+            </span>
+          </a>
+
           <Button
             variant="contained"
             size="sm"

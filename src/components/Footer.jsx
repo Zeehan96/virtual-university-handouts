@@ -37,6 +37,14 @@ export function Footer({ onSelectFaculty, setActiveTab }) {
             <ul className="flex flex-col gap-1.5 text-xs text-slate-600 dark:text-slate-400">
               <li>
                 <button 
+                  onClick={() => { setActiveTab('resources'); onSelectFaculty('education'); window.scrollTo({ top: 300, behavior: 'smooth' }); }}
+                  className="hover:text-[#0f2b5c] dark:hover:text-[#60a5fa] text-left transition-colors cursor-pointer"
+                >
+                  Faculty of Education (B.Ed 1.5, 2.5, 4 Years)
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => { setActiveTab('resources'); onSelectFaculty('cs_it'); window.scrollTo({ top: 300, behavior: 'smooth' }); }}
                   className="hover:text-[#0f2b5c] dark:hover:text-[#60a5fa] text-left transition-colors cursor-pointer"
                 >
@@ -145,7 +153,7 @@ export function Footer({ onSelectFaculty, setActiveTab }) {
         {/* Bottom Disclaimer */}
         <div className="pt-4 border-t border-slate-200/80 dark:border-[#0e224e] flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <div>
-            © 2026 VU StudyHub. Built for Virtual University of Pakistan students.
+            © 2026 VU StudyHub. Designed & Managed by <a href="https://wa.me/923156900796" target="_blank" rel="noopener noreferrer" className="font-bold text-[#0f2b5c] dark:text-[#60a5fa] hover:underline">Muhammad Zeeshan Khalid</a> • Contact: <a href="tel:03156900796" className="font-bold text-[#b48316] dark:text-[#fbbf24] hover:underline">03156900796</a>
           </div>
           <div>
             Independent educational community portal. Not affiliated with or endorsed by Virtual University of Pakistan.
